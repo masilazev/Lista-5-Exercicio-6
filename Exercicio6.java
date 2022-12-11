@@ -1,16 +1,31 @@
+import java.util.Scanner;
+
 public class Exercicio6 {
 public static void main(String[] args){
     int horas, minutos;
 
     horas = 00;
     minutos = 15;
+    String opcao;
+    Scanner input = new Scanner(System.in);
 
-        if ((horas >= 12) && (horas < 24)){
+    do{
+        if (horas > 12){
             horas = horas - 12;
-            System.out.print(horas + ":" + minutos + " P.M. ");
+            imprimeHorario(horas, minutos, 'P');
+        }else if (horas == 12){
+            imprimeHorario(horas, minutos, 'P');  
+        }else if (horas == 24){
+            imprimeHorario(horas, minutos, 'A'); 
         }
         else{
-            System.out.print(horas + ":" + minutos + " A.M. ");
-        }
+            imprimeHorario(horas, minutos, 'A');
+            }
+            System.out.println("Deseja converte mais um numero?");
+            opcao = input.nextLine();
+        } while(opcao != "n");
+    }
+    static void imprimeHorario(int h, int m, char t){
+        System.out.print(h + ":" + m + " " + t + ".M.");
     }
 }
